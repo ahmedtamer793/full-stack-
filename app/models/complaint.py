@@ -21,10 +21,6 @@ class Complaint(db.Model):
 
     @classmethod
     def atomic_upvote(cls, complaint_id):
-        """
-        Atomic Update لحل مشكلة الـ Race Conditions
-        UPDATE complaints SET votes = votes + 1 WHERE id = X
-        """
         complaint = cls.query.get(complaint_id)
         if complaint:
             complaint.votes = cls.votes + 1

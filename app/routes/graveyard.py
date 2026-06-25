@@ -8,10 +8,7 @@ graveyard_bp = Blueprint('graveyard', __name__)
 
 @graveyard_bp.route('/autopsy', methods=['POST'])
 def perform_autopsy():
-    """
-    بياخد الـ SQL من اليوزر، بيحط قبله EXPLAIN QUERY PLAN 
-    عشان يرجع خطة التنفيذ في SQLite ويفضح الـ Performance.
-    """
+
     data = request.get_json() or {}
     raw_query = data.get('query', '').strip()
 

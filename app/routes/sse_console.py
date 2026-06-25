@@ -6,10 +6,6 @@ sse_bp = Blueprint('sse', __name__)
 
 @sse_bp.route('/logs')
 def stream_logs():
-    """
-    Server-Sent Events Endpoint.
-    يفضل فاتح الـ Connection مع البراوزر ويبعت أي Log جديد يقع في الـ Queue.
-    """
     def generate():
         yield "data: [SYSTEM] Connected to Backend Mainframe SSE.\n\n"
         

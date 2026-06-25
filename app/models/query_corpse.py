@@ -2,7 +2,6 @@ from app import db
 from datetime import datetime
 
 class QueryCorpse(db.Model):
-    """جدول لتخزين كوارث الـ SQL اللي هتتبعت للمقبرة"""
     __tablename__ = 'query_corpses'
 
     id = db.Column(db.Integer, primary_key=True)
