@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="section">
+    <h1>The Anti-Frontend Club</h1>
+    <p>> We don't design. We deploy.</p>
+    <p>> Live Stats: Members [{{ total_members }}] | CSS Traumas [{{ total_traumas }}]</p>
+</div>
+
+<div class="section">
+    <h2>1. The Centering Challenge</h2>
+    <p>Frontend devs say centering a div is easy? Try clicking this button.</p>
+    <div id="runaway-container">
+        <button id="the-div">Center Me</button>
+    </div>
+</div>
+
+<div class="section">
+    <h2>2. CSS Cry Room</h2>
+    <form id="cry-form">
+        <input type="text" id="username" placeholder="Your Backend Name (e.g. Ahmed_Chad)" required>
+        <select id="css-prop">
+            <option value="z-index">z-index</option>
+            <option value="flexbox">flexbox</option>
+            <option value="margin">margin</option>
+            <option value="position">position</option>
+        </select>
+        <textarea id="story" rows="3" placeholder="Describe the CSS nightmare..." required></textarea><br>
+        <button type="submit">POST /api/cry-room/submit</button>
+    </form>
+    <div class="output-box" id="cry-output">Response will appear here...</div>
+</div>
+
+<div class="section">
+    <h2>3. The Query Graveyard (SQL Autopsy)</h2>
+    <p>Submit your worst SQL query. Our SQLite engine will EXPLAIN QUERY PLAN and roast you.</p>
+    <form id="sql-form">
+        <textarea id="bad-query" rows="3" placeholder="SELECT * FROM users JOIN posts..." required></textarea><br>
+        <button type="submit">POST /api/graveyard/autopsy</button>
+    </form>
+    <div class="output-box" id="sql-output">Execution plan will appear here...</div>
+</div>
+
+<div class="section">
+    <h2>4. No-Bullshit API Tester</h2>
+    <p>Let the Flask server test the API for you.</p>
+    <form id="api-form">
+        <input type="url" id="api-url" placeholder="https://jsonplaceholder.typicode.com/todos/1" required>
+        <select id="api-method">
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+        </select><br>
+        <button type="submit">POST /api/tester/run</button>
+    </form>
+    <div class="output-box" id="api-output">API status will appear here...</div>
+</div>
+
+<script src="{{ url_for('static', filename='js/cry_room.js') }}"></script>
+<script src="{{ url_for('static', filename='js/api_tester.js') }}"></script>
+{% endblock %}
